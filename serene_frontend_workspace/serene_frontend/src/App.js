@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import React, { useState, useMemo } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 
 // Import page skeletons
@@ -16,20 +16,18 @@ import TuneMyMood from './pages/TuneMyMood';
 // Import persistent vertical navigation
 import VerticalNav from './components/VerticalNav';
 
-/**
- * Main App with routing for all major pages.
- */
 // PUBLIC_INTERFACE
-function App() {
-  // Helper to determine if nav should show
-  // Only show VerticalNav on main app pages (post-login/profile complete)
-  const PostLoginShell = ({ children }) => (
+export const AppContext = React.createContext();
+
+/**
+ * Main App with full context, routing, and navigation flow integration.
+ */
+function MainLayout({ children }) {
+  return (
     <div style={{ display: "flex", minHeight: "100vh" }}>
       <VerticalNav />
       <div style={{
         flex: 1,
-        marginLeft: 90,
-        padding: 0,
         minHeight: "100vh",
         background: "transparent"
       }}>
@@ -37,57 +35,107 @@ function App() {
       </div>
     </div>
   );
+}
+
+// Guards: Only allow access if authed (user) and has profile
+function PrivateRoute({ authed, hasProfile, children }) {
+  if (!authed) return <Navigate to="/" />;
+  if (!hasProfile) return <Navigate to="/profile-setup" />;
+  return children;
+}
+
+function AppRoutes() {
+  const { user, profile } = React.useContext(AppContext);
+  const authed = !!user;
+  const hasProfile = !!profile;
+
   return (
-    <Router>
-      <div className="app">
+    <Routes>
+      {/* Public routes (no nav, pre-auth) */}
+      <Route path="/" element={!authed ? <Landing /> : <Navigate to={hasProfile ? "/feed" : "/profile-setup"} />} />
+      <Route path="/signup" element={!authed ? <SignUp /> : <Navigate to={hasProfile ? "/feed" : "/profile-setup"} />} />
+      <Route path="/google-signin" element={!authed ? <GoogleSignInSim /> : <Navigate to={hasProfile ? "/feed" : "/profile-setup"} />} />
+      <Route path="/profile-setup" element={authed && !hasProfile ? <ProfileSetup /> : <Navigate to={authed ? "/feed" : "/"} />} />
+
+      {/* Protected/main app routes (require auth/profile, show VerticalNav) */}
+      <Route
+        path="/feed"
+        element={
+          <PrivateRoute authed={authed} hasProfile={hasProfile}>
+            <MainLayout>
+              <Feed />
+            </MainLayout>
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/explore"
+        element={
+          <PrivateRoute authed={authed} hasProfile={hasProfile}>
+            <MainLayout>
+              <Explore />
+            </MainLayout>
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/chatbot"
+        element={
+          <PrivateRoute authed={authed} hasProfile={hasProfile}>
+            <MainLayout>
+              <Chatbot />
+            </MainLayout>
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/profile"
+        element={
+          <PrivateRoute authed={authed} hasProfile={hasProfile}>
+            <MainLayout>
+              <Profile />
+            </MainLayout>
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/tunemymood"
+        element={
+          <PrivateRoute authed={authed} hasProfile={hasProfile}>
+            <MainLayout>
+              <TuneMyMood />
+            </MainLayout>
+          </PrivateRoute>
+        }
+      />
+      {/* fallback */}
+      <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
+  );
+}
+
+// PUBLIC_INTERFACE
+function App() {
+  // Demo: global user+profile state for navigation/auth flows
+  const [user, setUser] = useState(null); // null or {name, email, etc.}
+  const [profile, setProfile] = useState(null); // null or {displayName, avatar, ...}
+  const value = useMemo(() => ({ user, setUser, profile, setProfile }), [user, profile]);
+
+  return (
+    <AppContext.Provider value={value}>
+      <Router>
         <nav className="navbar">
           <div className="container">
-            {/* Minimal fixed header for Serene */}
             <div className="logo" style={{ fontWeight: 600, color: "#bfc8e6" }}>
               SereneSphere
             </div>
           </div>
         </nav>
-
-        {/* Main layout changes: show left nav ONLY on feed/explore/chatbot/profile/tunemymood */}
         <main style={{ minHeight: "100vh", marginTop: 64 }}>
-          <Routes>
-            {/* Pre-login / standalone flows */}
-            <Route path="/" element={<div className="container"><Landing /></div>} />
-            <Route path="/signup" element={<div className="container"><SignUp /></div>} />
-            <Route path="/google-signin" element={<div className="container"><GoogleSignInSim /></div>} />
-            <Route path="/profile-setup" element={<div className="container"><ProfileSetup /></div>} />
-
-            {/* Post-login/profile complete: Wrap pages with PostLoginShell */}
-            <Route path="/feed" element={
-              <PostLoginShell>
-                <Feed />
-              </PostLoginShell>
-            } />
-            <Route path="/explore" element={
-              <PostLoginShell>
-                <Explore />
-              </PostLoginShell>
-            } />
-            <Route path="/chatbot" element={
-              <PostLoginShell>
-                <Chatbot />
-              </PostLoginShell>
-            } />
-            <Route path="/profile" element={
-              <PostLoginShell>
-                <Profile />
-              </PostLoginShell>
-            } />
-            <Route path="/tunemymood" element={
-              <PostLoginShell>
-                <TuneMyMood />
-              </PostLoginShell>
-            } />
-          </Routes>
+          <AppRoutes />
         </main>
-      </div>
-    </Router>
+      </Router>
+    </AppContext.Provider>
   );
 }
 

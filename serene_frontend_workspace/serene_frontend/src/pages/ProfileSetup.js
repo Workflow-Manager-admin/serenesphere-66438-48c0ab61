@@ -1,20 +1,16 @@
-import React, { useState, useRef } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import React, { useState, useRef, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import Logo from "../components/Logo";
+import { AppContext } from "../App";
 
 /**
  * PUBLIC_INTERFACE
- * ProfileSetup: Collects user info for profile, with avatar upload. Minimal, pastel, vertical stack, input validation.
+ * ProfileSetup: Collects user info for profile, with avatar upload. On submit, saves profile to context.
  */
 function ProfileSetup() {
   const navigate = useNavigate();
-  const location = useLocation();
-  // If previous page passed data, prefill name/email
-  const initial = (location.state && typeof location.state === 'object') ? location.state : {};
-  const [fields, setFields] = useState({
-    name: initial.name || "",
-    bio: "",
-  });
+  const { setProfile } = useContext(AppContext);
+  const [fields, setFields] = useState({ name: "", bio: "" });
   const [avatar, setAvatar] = useState(null);
   const [avatarPreview, setAvatarPreview] = useState("");
   const [errors, setErrors] = useState({});
@@ -59,8 +55,12 @@ function ProfileSetup() {
       setSaving(true);
       setTimeout(() => {
         setSaving(false);
-        // Go to profile page (simulated)
-        navigate("/profile", { state: { name: fields.name, bio: fields.bio, avatar: avatarPreview } });
+        setProfile({
+          name: fields.name,
+          avatar: avatarPreview,
+          bio: fields.bio || "",
+        });
+        navigate("/feed");
       }, 1100);
     }
   }

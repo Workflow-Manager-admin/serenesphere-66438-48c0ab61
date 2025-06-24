@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Logo from "../components/Logo";
+import { AppContext } from "../App";
 
 /**
- * GoogleSignInSim: Simulated Google sign-in + profile for Serene.
- * Clean, soft pastel minimal form. Validates inputs, transitions to feed.
+ * GoogleSignInSim: Simulated Google sign-in for Serene.
+ * Sets demo user in context, transitions to Profile Setup.
  */
 // PUBLIC_INTERFACE
 function GoogleSignInSim() {
   const navigate = useNavigate();
-  // Google's simulated fields
+  const { setUser, setProfile } = useContext(AppContext);
   const [fields, setFields] = useState({ email: "", first: "", last: "" });
   const [errors, setErrors] = useState({});
   const [signing, setSigning] = useState(false);
@@ -35,8 +36,14 @@ function GoogleSignInSim() {
       setSigning(true);
       setTimeout(() => {
         setSigning(false);
-        // Fake storing "Google" session, then go to Feed
-        navigate("/feed", { state: { user: fields.email, name: `${fields.first} ${fields.last}` } });
+        // Set demo user context (simulate Google identity), force profile setup step
+        setUser({
+          name: `${fields.first} ${fields.last}`,
+          email: fields.email,
+          google: true
+        });
+        setProfile(null);
+        navigate("/profile-setup");
       }, 900);
     }
   }
@@ -195,7 +202,11 @@ function GoogleSignInSim() {
           Want to create manually?{" "}
           <span
             style={{ color: "#bfc8e6", cursor: "pointer", fontWeight: 600 }}
-            onClick={() => navigate("/signup")}
+            onClick={() => {
+              setUser(null);
+              setProfile(null);
+              navigate("/signup");
+            }}
           >
             Create account
           </span>

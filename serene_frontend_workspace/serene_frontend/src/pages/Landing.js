@@ -1,14 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Logo from "../components/Logo";
+import { AppContext } from "../App";
 
 // PUBLIC_INTERFACE
 function Landing() {
-  /**
-   * Vertically centered, calming welcome page with SereneSphere logo,
-   * inviting message, and navigation buttons.
-   */
   const navigate = useNavigate();
+  const { setUser, setProfile } = useContext(AppContext);
 
   return (
     <div
@@ -45,7 +43,11 @@ function Landing() {
             fontWeight: 600,
             minWidth: 140,
           }}
-          onClick={() => navigate("/signup")}
+          onClick={() => {
+            setUser(null);
+            setProfile(null);
+            navigate("/signup");
+          }}
         >
           Sign Up
         </button>
@@ -58,7 +60,11 @@ function Landing() {
             minWidth: 140,
             border: "1px solid #bfc8e6",
           }}
-          onClick={() => navigate("/google-signin")}
+          onClick={() => {
+            setUser(null);
+            setProfile(null);
+            navigate("/google-signin");
+          }}
         >
           Sign in with Google
         </button>

@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Logo from "../components/Logo";
+import { AppContext } from "../App";
 
 /**
  * SignUp: SereneSphere minimal soft pastel sign-up page.
- * Simulates user registration with client-side validation.
- * Transitions to profile setup on "success".
+ * Sets global context for user (demo), transitions to ProfileSetup.
  */
 // PUBLIC_INTERFACE
 function SignUp() {
   const navigate = useNavigate();
+  const { setUser, setProfile } = useContext(AppContext);
   const [fields, setFields] = useState({ name: "", email: "", password: "" });
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
@@ -39,9 +40,10 @@ function SignUp() {
       setLoading(true);
       setTimeout(() => {
         setLoading(false);
-        // Simulate setting user "session"
-        navigate("/profile-setup", { state: { name: fields.name, email: fields.email } });
-      }, 1100); // Simulate async delay
+        setUser({ name: fields.name, email: fields.email });
+        setProfile(null); // force profile setup step after signup
+        navigate("/profile-setup");
+      }, 1100);
     }
   }
 
@@ -163,7 +165,11 @@ function SignUp() {
           Already have an account?{" "}
           <span
             style={{ color: "#bbe2e2", cursor: "pointer", fontWeight: 600 }}
-            onClick={() => navigate("/google-signin")}
+            onClick={() => {
+              setUser(null);
+              setProfile(null);
+              navigate("/google-signin");
+            }}
           >
             Sign in with Google
           </span>
