@@ -63,13 +63,13 @@ function Landing() {
         >
           Serene
         </h1>
-        {/* Tagline in Muller Next */}
+        {/* Tagline in Muller Next: now italic, in quotes */}
         <div className="w-full max-w-2xl mb-8" style={{ textAlign: "center" }}>
           <p
             className="landing-muller-tagline"
             style={{
               fontFamily: "'MullerNext', 'Inter', Arial, Helvetica, sans-serif",
-              fontStyle: "normal",
+              fontStyle: "italic",
               fontWeight: 400,
               fontSize: "1.58rem",
               color: "#97a3b9",
@@ -79,7 +79,7 @@ function Landing() {
               letterSpacing: "0.01em"
             }}
           >
-            A peaceful Social Space Inspired by Calm, Beauty and Connections
+            &quot;A peaceful Social Space Inspired by Calm, Beauty and Connections&quot;
           </p>
         </div>
         {/* Button row: 2 equal, capsule-shaped, perfectly centered */}

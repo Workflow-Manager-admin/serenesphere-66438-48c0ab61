@@ -124,14 +124,8 @@ function App() {
   return (
     <AppContext.Provider value={value}>
       <Router>
-        <nav className="navbar">
-          <div className="container">
-            <div className="logo" style={{ fontWeight: 600, color: "#bfc8e6" }}>
-              SereneSphere
-            </div>
-          </div>
-        </nav>
-        <main style={{ minHeight: "100vh", marginTop: 64 }}>
+        {/* Remove global nav/header bar from public (landing, signup) pages */}
+        <main style={{ minHeight: "100vh" }}>
           <AppRoutes />
         </main>
       </Router>

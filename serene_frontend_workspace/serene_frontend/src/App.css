@@ -93,6 +93,17 @@ body {
   pointer-events: none;
 }
 
+/* Ensure landing public page does NOT get any top nav height offset */
+@media (max-width: 600px) {
+  .landing-nexa-heading {
+    font-size: 2.1rem !important;
+    margin-bottom: 6px !important;
+  }
+  .landing-muller-tagline {
+    font-size: 1.06rem !important;
+  }
+}
+
 /* --- Landing Page: Capsule Button Row Side-by-side (NEW) --- */
 .landing-btn-capsule-row {
   display: flex;
