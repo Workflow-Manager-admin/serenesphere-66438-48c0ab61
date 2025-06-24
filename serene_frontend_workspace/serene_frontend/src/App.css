@@ -136,6 +136,130 @@ body {
   pointer-events: none;
 }
 
+/* Landing Page - Button Row Styling */
+.landing-btn-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2.1rem;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto 0 auto;
+  margin-bottom: 8px;
+  margin-top: 2px;
+}
+
+@media (max-width: 800px) {
+  .landing-btn-row {
+    gap: 1.1rem;
+    max-width: 99vw;
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 600px) {
+  .landing-btn-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.35rem;
+    margin-bottom: 4px;
+    width: 100%;
+    max-width: 99vw;
+  }
+}
+
+/* UNIVERSAL large button styling */
+.serene-btn {
+  border: none;
+  cursor: pointer;
+  outline: none;
+  font-family: 'Inter', 'Playfair Display', 'EB Garamond', sans-serif;
+  font-size: 2rem;
+  min-width: 220px;
+  min-height: 56px;
+  border-radius: 9999px;
+  padding: 0.7em 2.25em;
+  font-weight: 700;
+  box-shadow: 0 5px 28px #bdd9e320, 0 1.5px 13px #bbe2e217;
+  transition: 
+    box-shadow 0.18s cubic-bezier(0.44,0,0.56,1.15),
+    transform 0.14s cubic-bezier(0.43,0,0.59,1.12),
+    background 0.17s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: 0;
+  user-select: none;
+  letter-spacing: 0.025em;
+  position: relative;
+  z-index: 2;
+}
+
+.serene-btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 3px 15px #bfc8e614;
+}
+.serene-btn:focus {
+  box-shadow: 0 0 0 2.5px #bfc8e6, 0 3px 22px #e8eaf639;
+  outline: none;
+}
+
+/* Gradient for main signup */
+.serene-btn--gradient {
+  background: linear-gradient(90deg, #bbe2e2 8%, #e8eaf6 60%, #bfc8e6 100%);
+  color: #415973;
+  box-shadow: 0 3px 28px #bdd9e330;
+}
+.serene-btn--gradient:hover, .serene-btn--gradient:focus {
+  filter: brightness(1.08) drop-shadow(0 0 24px #bbe2e2aa);
+  box-shadow: 0 6px 36px #bfc8e640, 0 3px 28px #bdd9e330;
+  transition: filter 0.17s, box-shadow 0.18s;
+}
+
+/* Aesthetic large button for both */
+.serene-btn--large {
+  font-size: 2.05rem;
+  min-width: 222px;
+  min-height: 58px;
+  padding: 0.86em 2.25em;
+}
+
+@media (max-width: 600px) {
+  .serene-btn--large {
+    font-size: 1.14rem;
+    min-width: 85vw;
+    padding: 0.72em 1.1em;
+  }
+}
+
+/* Google button styling */
+.serene-btn--google {
+  background: rgba(255,255,255,0.85);
+  border: 1.7px solid #bbe2e2;
+  color: #53616c;
+  font-weight: 700;
+  box-shadow: 0 3px 24px #bdd9e31e;
+  display: flex;
+  gap: 0.75em;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.02em;
+}
+.serene-btn--google:hover, .serene-btn--google:focus {
+  border-color: #bfc8e6;
+  color: #7ba5b7;
+  filter: brightness(1.05) drop-shadow(0 0 15px #e8eaf667);
+  box-shadow: 0 6px 32px #bfc8e63c;
+}
+
+.serene-btn--google span {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
 /* Custom spinner for Feed Page infinite scroll */
 @keyframes feedspin {
   0% { transform: rotate(0deg);}

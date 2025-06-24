@@ -77,31 +77,15 @@ function Landing() {
           </p>
         </div>
         {/* Main buttons, beautiful large size */}
-        <div className="flex flex-col md:flex-row items-center justify-center gap-7 w-full md:w-auto mt-1">
+        <div className="landing-btn-row">
           <button
-            className="rounded-full px-10 py-4 min-w-[230px] text-2xl font-semibold text-[#415973] shadow-xl transition-all duration-300 ease-in-out bg-gradient-to-tr from-[#bbe2e2] via-[#e8eaf6] to-[#bfc8e6] hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#bfc8e6] animate-pop"
-            style={{
-              letterSpacing: "0.03em",
-              background:
-                "linear-gradient(90deg, #bbe2e2 8%, #e8eaf6 60%, #bfc8e6 100%)",
-              boxShadow: "0 3px 28px #bdd9e330",
-              marginBottom: 0,
-              marginTop: 0,
-            }}
+            className="serene-btn serene-btn--gradient serene-btn--large"
             onClick={() => navigate("/signup")}
           >
             Create a Serene Account
           </button>
           <button
-            className="rounded-full px-10 py-4 min-w-[230px] text-2xl font-semibold shadow-lg transition-all duration-300 ease-in-out bg-white/80 border border-[#bbe2e2] text-[#53616c] hover:border-[#bfc8e6] hover:text-[#7ba5b7] hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#bbe2e2] relative flex items-center gap-2"
-            style={{
-              marginBottom: 0,
-              marginTop: 0,
-              fontWeight: 600,
-              letterSpacing: "0.02em",
-              background: "rgba(255,255,255,0.85)",
-              boxShadow: "0 3px 28px #bdd9e31e",
-            }}
+            className="serene-btn serene-btn--google serene-btn--large"
             onClick={() => navigate("/google-signin")}
           >
             <span>
