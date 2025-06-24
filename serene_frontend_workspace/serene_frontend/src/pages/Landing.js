@@ -1,11 +1,16 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Logo from "../components/Logo";
+import "../LandingFonts.css";
 
 /**
- * Landing page for Serene.
- * Logo at the top, tagline centered, then small vertical stack of action buttons,
- * with elegant aesthetic layout, removing any old top header/title.
+ * Landing page for Serene, refactored:
+ *  - Logo at the very top and centered
+ *  - "Serene" in Nexa Script Heavy font, large and elegant
+ *  - Tagline in Muller Next, centered and elegant
+ *  - Two side-by-side, equal, capsule-shaped buttons directly below the tagline
+ *  - All elements perfectly centered and responsive
+ *  - Fonts imported via custom font-face and fallbacks provided
  */
 // PUBLIC_INTERFACE
 function Landing() {
@@ -13,68 +18,128 @@ function Landing() {
 
   return (
     <div
-      className="min-h-screen min-w-screen w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-[#f6fafc] via-[#e8eaf6] to-[#bbe2e2] relative"
+      className="min-h-screen w-full h-full flex flex-col items-center justify-start bg-gradient-to-br from-[#f6fafc] via-[#e8eaf6] to-[#bbe2e2] relative"
       style={{
         width: "100vw",
         minHeight: "100vh",
-        position: "relative",
-        overflow: "hidden",
         background:
           "linear-gradient(135deg, #f6fafc 0%, #e8eaf6 55%, #bbe2e2 100%)",
+        overflow: "hidden",
+        position: "relative",
       }}
     >
       <div
-        className="flex flex-col items-center justify-center w-full"
+        className="flex flex-col items-center w-full"
         style={{
-          flex: 1,
-          minHeight: "100vh",
-          justifyContent: "center",
-          zIndex: 1,
+          width: "100%",
+          maxWidth: 600,
+          margin: "0 auto",
+          paddingTop: 48,
+          paddingBottom: 74,
         }}
       >
-        {/* Logo at the top, elegantly spaced */}
-        <Logo size={110} />
-        {/* Tagline only (no old "Serene Sphere" or "Serene" text above) */}
-        <div
-          className="w-full px-2 sm:px-4 max-w-2xl mb-7 mt-0"
-          style={{ textAlign: "center" }}
+        {/* Logo at the very top */}
+        <div className="mb-3" style={{ width: "100%", display: "flex", justifyContent: "center" }}>
+          <Logo size={110} />
+        </div>
+        {/* "Serene" in Nexa Script Heavy */}
+        <h1
+          className="landing-nexa-heading"
+          style={{
+            fontFamily: "'NexaScriptHeavy', 'Brush Script MT', 'Dancing Script', cursive",
+            fontSize: "4.2rem",
+            fontWeight: 700,
+            letterSpacing: "0.03em",
+            margin: 0,
+            marginBottom: 8,
+            color: "#b09fb6",
+            textShadow: "0 2.5px 28px #e8eaf650, 0 1.5px 0 #ebeaf7, 0 2.7px 16px #bfc8e624",
+            textAlign: "center",
+            lineHeight: 1.07,
+            whiteSpace: "nowrap",
+            width: "100%",
+            flex: 0,
+          }}
         >
+          Serene
+        </h1>
+        {/* Tagline in Muller Next */}
+        <div className="w-full max-w-2xl mb-8" style={{ textAlign: "center" }}>
           <p
-            className="serene-intro"
+            className="landing-muller-tagline"
             style={{
-              fontFamily: "'EB Garamond', 'Dancing Script', serif",
-              fontStyle: "italic",
+              fontFamily: "'MullerNext', 'Inter', Arial, Helvetica, sans-serif",
+              fontStyle: "normal",
               fontWeight: 400,
-              fontSize: "2.18rem",
+              fontSize: "1.58rem",
               color: "#97a3b9",
-              lineHeight: 1.18,
-              textShadow: "0 1px 15px #bfc8e652",
+              lineHeight: 1.21,
+              textShadow: "0 1px 13px #bfc8e652",
               margin: 0,
+              letterSpacing: "0.01em"
             }}
           >
-            a peaceful social spaave inspired by calm and beauty and connections
+            A peaceful Social Space Inspired by Calm, Beauty and Connections
           </p>
         </div>
-        {/* Small stacked action buttons, elegantly spaced and centered */}
-        <div className="landing-btn-vertical">
+        {/* Button row: 2 equal, capsule-shaped, perfectly centered */}
+        <div
+          className="landing-btn-capsule-row"
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "100%",
+            maxWidth: 440,
+            gap: 24,
+            margin: "0 auto",
+            marginTop: 0,
+            marginBottom: 0,
+          }}
+        >
           <button
-            className="serene-btn serene-btn--gradient serene-btn--landing"
+            className="serene-btn serene-btn--gradient serene-btn--large serene-btn--capsule"
+            style={{
+              flex: 1,
+              borderRadius: 9999,
+              fontFamily: "'Inter', Arial, Helvetica, sans-serif",
+              fontWeight: 700,
+              fontSize: "1.07rem",
+              minWidth: 0,
+              margin: 0,
+              whiteSpace: "pre-line"
+            }}
             onClick={() => navigate("/signup")}
           >
             Create a Serene Account
           </button>
           <button
-            className="serene-btn serene-btn--google serene-btn--landing"
+            className="serene-btn serene-btn--google serene-btn--large serene-btn--capsule"
+            style={{
+              flex: 1,
+              borderRadius: 9999,
+              fontFamily: "'Inter', Arial, Helvetica, sans-serif",
+              fontWeight: 700,
+              fontSize: "1.07rem",
+              minWidth: 0,
+              margin: 0,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              whiteSpace: "pre-line"
+            }}
             onClick={() => navigate("/google-signin")}
-            style={{ marginTop: "13px" }}
           >
             <span>
+              {/* Google G icon */}
               <svg
                 width="22"
                 height="22"
                 viewBox="0 0 22 22"
                 style={{ display: "inline-block", verticalAlign: "middle" }}
                 fill="none"
+                aria-hidden="true"
               >
                 <g>
                   <circle
@@ -103,11 +168,11 @@ function Landing() {
                 </g>
               </svg>
             </span>
-            <span style={{ marginLeft: 7 }}>Continue with Google Account</span>
+            <span style={{ marginLeft: 9 }}>Continue with Google Account</span>
           </button>
         </div>
       </div>
-      {/* Persistent, bottom-centered copyright */}
+      {/* Footer */}
       <footer
         className="fixed left-0 bottom-0 w-full flex justify-center items-center"
         style={{
@@ -120,13 +185,36 @@ function Landing() {
           letterSpacing: "0.03em",
           padding: "16px 0 10px 0",
           background: "transparent",
-          userSelect: "none",
+          userSelect: "none"
         }}
       >
         <span style={{ pointerEvents: "none" }}>
           &copy; {new Date().getFullYear()} Serene
         </span>
       </footer>
+      {/* Responsive custom CSS for capsule row and font-fallbacks */}
+      <style>{`
+        @media (max-width: 650px) {
+          .landing-nexa-heading {
+            font-size: 2.1rem !important;
+            margin-bottom: 6px !important;
+          }
+          .landing-muller-tagline {
+            font-size: 1.06rem !important;
+          }
+          .landing-btn-capsule-row {
+            flex-direction: column !important;
+            gap: 13px !important;
+            max-width: 98vw;
+            width: 95vw !important;
+          }
+        }
+        .landing-btn-capsule-row > button {
+          /* ensure equal width for both buttons */
+          min-width: 0 !important;
+          width: 100%;
+        }
+      `}</style>
     </div>
   );
 }
