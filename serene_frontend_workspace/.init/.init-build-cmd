@@ -1,0 +1,4 @@
+{
+    "command": "npm install && npx tsc --noEmit && npm test -- --ci",
+    "working_directory": "/home/kavia/workspace/code-generation/serenesphere-66438-48c0ab61/serene_frontend_workspace/serene_frontend"
+}
