@@ -7,13 +7,13 @@
 <i> [webpack-dev-server] On Your Network (IPv4): http://172.17.0.2:3000/
 <i> [webpack-dev-server] Content not from webpack is served from './public' directory
 Injecting EditorRootWrapper import: ../.ve/EditorRootWrapper
-asset bundle.js 1.77 MiB [emitted] (name: main)
+asset bundle.js 1.78 MiB [emitted] (name: main)
 asset index.html 1.98 KiB [emitted]
 runtime modules 28.7 KiB 15 modules
-cacheable modules 1.59 MiB
+cacheable modules 1.6 MiB
   modules by path ./node_modules/ 1.54 MiB 34 modules
-  modules by path ./src/ 34.4 KiB
-    modules by path ./src/pages/*.js 21 KiB 9 modules
+  modules by path ./src/ 45.2 KiB
+    modules by path ./src/pages/*.js 31.8 KiB 9 modules
     modules by path ./src/*.css 7.49 KiB 4 modules
     modules by path ./src/*.js 4.46 KiB 2 modules
     ./src/components/Logo.js 1.49 KiB [built] [code generated]
@@ -21,14 +21,16 @@ cacheable modules 1.59 MiB
     modules by path ./.ve/*.js 10.6 KiB 2 modules
     modules by path ./.ve/*.css 2.93 KiB 2 modules
     ./.ve/EditorOverlay.jsx 1.58 KiB [built] [code generated]
-webpack 5.99.9 compiled successfully in 2084 ms
+webpack 5.99.9 compiled successfully in 1761 ms
 assets by status 1.98 KiB [cached] 1 asset
 assets by path *.js 1.8 MiB
-  asset bundle.js 1.78 MiB [emitted] (name: main)
-  asset main.db695d535d61de4188b6.hot-update.js 15.6 KiB [emitted] [immutable] [hmr] (name: main)
-asset main.db695d535d61de4188b6.hot-update.json 28 bytes [emitted] [immutable] [hmr]
-Entrypoint main 1.8 MiB = bundle.js 1.78 MiB main.db695d535d61de4188b6.hot-update.js 15.6 KiB
-cached modules 1.59 MiB [cached] 54 modules
+  asset bundle.js 1.79 MiB [emitted] (name: main)
+  asset main.4edd49a0333ee3691856.hot-update.js 12.8 KiB [emitted] [immutable] [hmr] (name: main)
+asset main.4edd49a0333ee3691856.hot-update.json 28 bytes [emitted] [immutable] [hmr]
+Entrypoint main 1.8 MiB = bundle.js 1.79 MiB main.4edd49a0333ee3691856.hot-update.js 12.8 KiB
+cached modules 1.6 MiB [cached] 54 modules
 runtime modules 28.7 KiB 15 modules
-./src/pages/ProfileSetup.js 11.2 KiB [built] [code generated]
-webpack 5.99.9 compiled successfully in 137 ms
+javascript modules 8.29 KiB
+  ./src/pages/Feed.js 2.63 KiB [built] [code generated]
+  ./src/components/PostCard.js 5.66 KiB [built] [code generated]
+webpack 5.99.9 compiled successfully in 141 ms
