@@ -137,34 +137,45 @@ body {
 }
 
 /* Landing Page - Button Row Styling */
-.landing-btn-row {
+/* Stacked, beautiful vertical button column for landing page */
+.landing-btn-vertical {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: stretch;
-  gap: 2.1rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
   width: 100%;
-  max-width: 700px;
+  max-width: 380px;
   margin: 0 auto 0 auto;
-  margin-bottom: 8px;
-  margin-top: 2px;
 }
 
-@media (max-width: 800px) {
-  .landing-btn-row {
-    gap: 1.1rem;
-    max-width: 99vw;
-    flex-wrap: wrap;
+@media (max-width: 600px) {
+  .landing-btn-vertical {
+    gap: 0.66rem;
+    max-width: 95vw;
   }
 }
+
+/* Hide (not remove) the .landing-btn-row class to prevent legacy styles impacting new vertical landing layout */
+.landing-btn-row {
+  display: none !important;
+}
+
+/* Small elegant vertical button styling */
+.serene-btn--landing {
+  font-size: 1.12rem !important;
+  min-width: 180px !important;
+  min-height: 38px !important;
+  padding: 0.45em 1.1em !important;
+  border-radius: 999px !important;
+  box-shadow: 0 4px 17px #bfc8e612, 0 1.5px 9px #bbe2e217;
+}
+
 @media (max-width: 600px) {
-  .landing-btn-row {
-    flex-direction: column;
-    align-items: center;
-    gap: 1.35rem;
-    margin-bottom: 4px;
-    width: 100%;
+  .serene-btn--landing {
+    font-size: 1.01rem !important;
+    min-width: 75vw !important;
     max-width: 99vw;
+    padding: 0.41em 0.7em !important;
   }
 }
 

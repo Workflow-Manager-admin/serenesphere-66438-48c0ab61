@@ -4,13 +4,13 @@ import Logo from "../components/Logo";
 
 /**
  * Landing page for Serene.
- * Vertically and horizontally centers content, places logo above giant title,
- * makes intro text and title dramatically larger, and fixes copyright at bottom.
+ * Logo at the top, tagline centered, then small vertical stack of action buttons,
+ * with elegant aesthetic layout, removing any old top header/title.
  */
+// PUBLIC_INTERFACE
 function Landing() {
   const navigate = useNavigate();
 
-  // Harmonious pastel gradient and container flex centering
   return (
     <div
       className="min-h-screen min-w-screen w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-[#f6fafc] via-[#e8eaf6] to-[#bbe2e2] relative"
@@ -32,32 +32,11 @@ function Landing() {
           zIndex: 1,
         }}
       >
-        {/* Logo above the title, visually dominant, soft shadow */}
-        <Logo size={112} />
-        {/* "Serene" Dramatic Title */}
-        <h1
-          className="serene-heading"
-          style={{
-            fontFamily: "'Playfair Display', 'Dancing Script', serif",
-            fontWeight: 900,
-            fontSize: "5.7rem",
-            letterSpacing: "0.08em",
-            color: "#b09fb6",
-            textShadow:
-              "0 2px 40px #e8eaf650, 0 1.5px 0 #ebeaf7, 0 3px 16px #bfc8e633",
-            margin: 0,
-            marginBottom: 19,
-            lineHeight: 1.08,
-            textAlign: "center",
-            transition: "font-size 0.2s",
-          }}
-        >
-          Serene
-        </h1>
-
-        {/* Dramatic intro quote/text */}
+        {/* Logo at the top, elegantly spaced */}
+        <Logo size={110} />
+        {/* Tagline only (no old "Serene Sphere" or "Serene" text above) */}
         <div
-          className="w-full px-2 sm:px-4 max-w-2xl mb-11 mt-0"
+          className="w-full px-2 sm:px-4 max-w-2xl mb-7 mt-0"
           style={{ textAlign: "center" }}
         >
           <p
@@ -73,25 +52,26 @@ function Landing() {
               margin: 0,
             }}
           >
-            "A peaceful social space inspired by calm, beauty, and connection."
+            a peaceful social spaave inspired by calm and beauty and connections
           </p>
         </div>
-        {/* Main buttons, beautiful large size */}
-        <div className="landing-btn-row">
+        {/* Small stacked action buttons, elegantly spaced and centered */}
+        <div className="landing-btn-vertical">
           <button
-            className="serene-btn serene-btn--gradient serene-btn--large"
+            className="serene-btn serene-btn--gradient serene-btn--landing"
             onClick={() => navigate("/signup")}
           >
             Create a Serene Account
           </button>
           <button
-            className="serene-btn serene-btn--google serene-btn--large"
+            className="serene-btn serene-btn--google serene-btn--landing"
             onClick={() => navigate("/google-signin")}
+            style={{ marginTop: "13px" }}
           >
             <span>
               <svg
-                width="28"
-                height="28"
+                width="22"
+                height="22"
                 viewBox="0 0 22 22"
                 style={{ display: "inline-block", verticalAlign: "middle" }}
                 fill="none"
@@ -123,7 +103,7 @@ function Landing() {
                 </g>
               </svg>
             </span>
-            <span>Continue with Google</span>
+            <span style={{ marginLeft: 7 }}>Continue with Google Account</span>
           </button>
         </div>
       </div>
