@@ -21,6 +21,13 @@ body {
   flex-direction: column;
 }
 
+/* Reserve space when a vertical nav is shown */
+@media (min-width: 700px) {
+  .with-vertical-nav {
+    margin-left: 90px;
+  }
+}
+
 .navbar {
   background-color: var(--base-dark);
   padding: 16px;

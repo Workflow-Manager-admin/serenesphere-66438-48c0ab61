@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
 
 // Import page skeletons
@@ -13,11 +13,30 @@ import Chatbot from './pages/Chatbot';
 import Profile from './pages/Profile';
 import TuneMyMood from './pages/TuneMyMood';
 
+// Import persistent vertical navigation
+import VerticalNav from './components/VerticalNav';
+
 /**
  * Main App with routing for all major pages.
  */
 // PUBLIC_INTERFACE
 function App() {
+  // Helper to determine if nav should show
+  // Only show VerticalNav on main app pages (post-login/profile complete)
+  const PostLoginShell = ({ children }) => (
+    <div style={{ display: "flex", minHeight: "100vh" }}>
+      <VerticalNav />
+      <div style={{
+        flex: 1,
+        marginLeft: 90,
+        padding: 0,
+        minHeight: "100vh",
+        background: "transparent"
+      }}>
+        {children}
+      </div>
+    </div>
+  );
   return (
     <Router>
       <div className="app">
@@ -29,20 +48,43 @@ function App() {
             </div>
           </div>
         </nav>
-        <main>
-          <div className="container">
-            <Routes>
-              <Route path="/" element={<Landing />} />
-              <Route path="/signup" element={<SignUp />} />
-              <Route path="/google-signin" element={<GoogleSignInSim />} />
-              <Route path="/profile-setup" element={<ProfileSetup />} />
-              <Route path="/feed" element={<Feed />} />
-              <Route path="/explore" element={<Explore />} />
-              <Route path="/chatbot" element={<Chatbot />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/tunemymood" element={<TuneMyMood />} />
-            </Routes>
-          </div>
+
+        {/* Main layout changes: show left nav ONLY on feed/explore/chatbot/profile/tunemymood */}
+        <main style={{ minHeight: "100vh", marginTop: 64 }}>
+          <Routes>
+            {/* Pre-login / standalone flows */}
+            <Route path="/" element={<div className="container"><Landing /></div>} />
+            <Route path="/signup" element={<div className="container"><SignUp /></div>} />
+            <Route path="/google-signin" element={<div className="container"><GoogleSignInSim /></div>} />
+            <Route path="/profile-setup" element={<div className="container"><ProfileSetup /></div>} />
+
+            {/* Post-login/profile complete: Wrap pages with PostLoginShell */}
+            <Route path="/feed" element={
+              <PostLoginShell>
+                <Feed />
+              </PostLoginShell>
+            } />
+            <Route path="/explore" element={
+              <PostLoginShell>
+                <Explore />
+              </PostLoginShell>
+            } />
+            <Route path="/chatbot" element={
+              <PostLoginShell>
+                <Chatbot />
+              </PostLoginShell>
+            } />
+            <Route path="/profile" element={
+              <PostLoginShell>
+                <Profile />
+              </PostLoginShell>
+            } />
+            <Route path="/tunemymood" element={
+              <PostLoginShell>
+                <TuneMyMood />
+              </PostLoginShell>
+            } />
+          </Routes>
         </main>
       </div>
     </Router>
