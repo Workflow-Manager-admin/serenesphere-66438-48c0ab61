@@ -1,5 +1,57 @@
-/* Base resets and coding styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:wght@500;700;900&family=Dancing+Script:wght@400;700&display=swap');
+
+/* Reset & global utility styles */
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 * {
   box-sizing: border-box;
 }
-/* (No changes: Resets are fine and merged with App.css for main feel) */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Soft pastel background fallback for all pages */
+body {
+  background-color: #e8eaf6;
+  color: #222;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Playfair Display', 'EB Garamond', serif;
+  font-weight: 700;
+  color: #968bb9;
+  letter-spacing: 0.05em;
+}
+
+button {
+  font-family: inherit;
+  outline: none;
+  border: none;
+}
+
+/* Enhance selection */
+::selection {
+  background: #bbe2e220;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #bbe2e2;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #e8eaf6;
+}
