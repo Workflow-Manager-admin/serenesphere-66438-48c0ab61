@@ -3,6 +3,14 @@
 // Use this file to simulate backend data for profile and feed components.
 //
 
+/** 
+ * PUBLIC_INTERFACE 
+ * Demo pastel + minimal placeholder image assets for serene fallback use.
+ */
+export const DEFAULT_AVATAR = "https://api.dicebear.com/6.x/shapes/svg?backgroundColor=bfc8e6,e8eaf6,bbe2e2";
+export const DEFAULT_IMAGE =
+  "https://images.unsplash.com/photo-1465101178521-c1c35b7b7dda?auto=format&fit=crop&w=600&q=80"; // Soft blue minimal landscape
+
 // PUBLIC_INTERFACE
 export const users = [
   {
@@ -26,10 +34,11 @@ export const users = [
     bio: "Ocean walker, soft melodies, slow mornings. 💙",
     posts: [3],
   },
+  // Intentionally missing avatar (will trigger placeholder)
   {
     id: 4,
     name: "Rohan S.",
-    avatar: "https://randomuser.me/api/portraits/men/24.jpg",
+    avatar: "",
     bio: "Minimalist geek. Productivity by day, meditation by night.",
     posts: [4],
   },
@@ -54,7 +63,10 @@ export const avatars = [
   "https://api.dicebear.com/6.x/personas/svg?seed=incognito"
 ];
 
-// PUBLIC_INTERFACE
+/**
+ * PUBLIC_INTERFACE
+ * All posts—ensure at least one entry with blank avatar and blank image to exercise fallback code visually!
+ */
 export const posts = [
   {
     id: 1,
@@ -89,11 +101,12 @@ export const posts = [
     likes: 33,
     comments: 7,
   },
+  // Deliberately blank avatar AND image to show placeholders on feed/demo
   {
     id: 4,
     userId: 4,
     name: "Rohan S.",
-    avatar: "https://randomuser.me/api/portraits/men/24.jpg",
+    avatar: "",
     time: "1 hr ago",
     text: "Minimal workspace = minimal stress.\nStay focused, stay peaceful.",
     image: "",
@@ -111,7 +124,6 @@ export const posts = [
     likes: 5,
     comments: 1,
   },
-  // User Maya makes second post (to show multi-post profile)
   {
     id: 6,
     userId: 1,
