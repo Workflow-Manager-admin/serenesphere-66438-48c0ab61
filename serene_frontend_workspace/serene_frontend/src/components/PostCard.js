@@ -62,8 +62,7 @@ function PostCard({
   // Layout styles w/ Tailwind utility classes
   return (
     <div
-      className="bg-[#e8eaf6] rounded-xl shadow-lg border border-[#bbe2e2] transition
-      max-w-[600px] w-full p-5 md:p-6 mb-9 flex flex-col items-stretch animate-pop relative group"
+      className="feed-card bg-[#e8eaf6] rounded-xl shadow-lg border border-[#bbe2e2] transition p-5 md:p-6 mb-9 flex flex-col items-stretch animate-pop relative group"
       style={{
         boxShadow: "0 1.5px 20px 0px rgba(187,226,226,0.13)",
       }}

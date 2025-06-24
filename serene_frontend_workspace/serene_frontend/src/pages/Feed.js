@@ -48,8 +48,9 @@ function Feed() {
 
   // Styles for main column (tailwind + custom fallback)
   const feedContainer = "flex flex-col items-center min-h-screen py-8 bg-gradient-to-b from-[#e8eaf6] via-[#e8eaf6] to-[#bbe2e2] px-2 sm:px-2";
-  const feedColumn =
-    "w-full flex flex-col items-center max-w-[600px] sm:max-w-[520px] md:max-w-[500px] mx-auto";
+  // Use feed-main-col and feed-card class to clamp widths
+  const feedColumn = "feed-main-col mx-auto";
+
 
   // If all posts loaded
   const endOfFeed = visibleCount >= allPostsMock.length;
@@ -66,7 +67,21 @@ function Feed() {
           aria-live="polite"
         >
           {loading ? (
-            <span className="block w-8 h-8 border-4 border-bfc8e6 border-t-transparent border-x-transparent rounded-full animate-spin"></span>
+            <span style={{
+                display: "inline-block",
+                width: 38,
+                height: 38,
+                border: "4.5px solid #bfc8e6",
+                borderTop: "4.5px solid #bbe2e2",
+                borderRight: "4.5px solid #e8eaf6",
+                borderBottom: "4.5px solid transparent",
+                borderLeft: "4.5px solid transparent",
+                borderRadius: "50%",
+                animation: "feedspin 0.7s linear infinite",
+                boxShadow: "0 1.5px 9px 0px #bfc8e63b"
+              }}
+              aria-label="Loading more posts"
+            />
           ) : endOfFeed ? (
             <span className="text-[#a3b0c0] font-medium text-sm opacity-90">— End of Feed —</span>
           ) : null}

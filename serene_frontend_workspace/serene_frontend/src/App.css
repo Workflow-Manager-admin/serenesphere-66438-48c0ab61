@@ -10,19 +10,68 @@ body {
   color: #222;
 }
 
+/* Custom spinner for Feed Page infinite scroll */
+@keyframes feedspin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
+
 .app-bg {
   background: linear-gradient(135deg, #f6fafc 0%, #e8eaf6 55%, #bbe2e2 100%);
   min-height: 100vh;
 }
 
+/* Custom spinner for Feed Page infinite scroll */
+@keyframes feedspin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
+
 @keyframes pop {
   0%   { transform: scale(0.98);}
-  60%  { transform: scale(1.04);}
-  100% { transform: scale(1);}
+
+/* Custom spinner for Feed Page infinite scroll */
+@keyframes feedspin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
 }
+
+  60%  { transform: scale(1.04);}
+
+/* Custom spinner for Feed Page infinite scroll */
+@keyframes feedspin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
+  100% { transform: scale(1);}
+
+/* Custom spinner for Feed Page infinite scroll */
+@keyframes feedspin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
+}
+
+/* Custom spinner for Feed Page infinite scroll */
+@keyframes feedspin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
 .animate-pop {
   animation: pop 0.4s cubic-bezier(0.36, 0.84, 0.5, 1.2);
 }
+
+/* Custom spinner for Feed Page infinite scroll */
+@keyframes feedspin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
 
 .serene-heading {
   font-family: 'Playfair Display', 'Dancing Script', serif;
@@ -30,27 +79,69 @@ body {
   letter-spacing: 0.05em;
 }
 
+/* Custom spinner for Feed Page infinite scroll */
+@keyframes feedspin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
+
 .lotus-shadow {
   filter: drop-shadow(0 1px 8px #bfc8e670);
 }
+
+/* Custom spinner for Feed Page infinite scroll */
+@keyframes feedspin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
 
 /* Accent gradient backgrounds */
 .btn-gradient {
   background: linear-gradient(90deg, #bbe2e2 8%, #e8eaf6 60%, #bfc8e6 100%);
 }
 
+/* Custom spinner for Feed Page infinite scroll */
+@keyframes feedspin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
+
 footer {
   font-family: 'EB Garamond', serif;
   letter-spacing: 0.03em;
 }
+
+/* Custom spinner for Feed Page infinite scroll */
+@keyframes feedspin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
 
 /* Utility - only as fallback if Tailwind unavailable for these cases */
 .rounded-full {
   border-radius: 9999px;
 }
 
+/* Custom spinner for Feed Page infinite scroll */
+@keyframes feedspin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
+
 /* Enhance button transition and focus style more if needed */
 button:focus {
   outline: none;
   box-shadow: 0 0 0 2px #bfc8e6, 0 1px 8px #e8eaf640;
 }
+
+/* Custom spinner for Feed Page infinite scroll */
+@keyframes feedspin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+

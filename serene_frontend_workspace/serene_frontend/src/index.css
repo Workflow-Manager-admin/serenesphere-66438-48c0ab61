@@ -6,14 +6,152 @@ html, body, #root {
   width: 100%;
 }
 
+/* Responsive images and avatars for PostCard */
+.feed-post-img, .profile-avatar, .comment-avatar {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 13px;
+  object-fit: cover;
+}
+.feed-post-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #bbe2e2;
+  border: 2px solid #bfc8e6;
+}
+
+/* Clamp post card min/max width for all screens */
+@media (min-width: 320px) {
+  .feed-card {
+    min-width: 95vw;
+    max-width: 99vw;
+  }
+}
+@media (min-width: 500px) {
+  .feed-card {
+    min-width: 440px;
+    max-width: 530px;
+  }
+}
+@media (min-width: 600px) {
+  .feed-card {
+    min-width: 500px;
+    max-width: 600px;
+  }
+}
+
+
+/* Responsive main column for feed content */
+.feed-main-col {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 #root {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
+/* Responsive images and avatars for PostCard */
+.feed-post-img, .profile-avatar, .comment-avatar {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 13px;
+  object-fit: cover;
+}
+.feed-post-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #bbe2e2;
+  border: 2px solid #bfc8e6;
+}
+
+/* Clamp post card min/max width for all screens */
+@media (min-width: 320px) {
+  .feed-card {
+    min-width: 95vw;
+    max-width: 99vw;
+  }
+}
+@media (min-width: 500px) {
+  .feed-card {
+    min-width: 440px;
+    max-width: 530px;
+  }
+}
+@media (min-width: 600px) {
+  .feed-card {
+    min-width: 500px;
+    max-width: 600px;
+  }
+}
+
+
+/* Responsive main column for feed content */
+.feed-main-col {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 * {
   box-sizing: border-box;
+}
+
+/* Responsive images and avatars for PostCard */
+.feed-post-img, .profile-avatar, .comment-avatar {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 13px;
+  object-fit: cover;
+}
+.feed-post-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #bbe2e2;
+  border: 2px solid #bfc8e6;
+}
+
+/* Clamp post card min/max width for all screens */
+@media (min-width: 320px) {
+  .feed-card {
+    min-width: 95vw;
+    max-width: 99vw;
+  }
+}
+@media (min-width: 500px) {
+  .feed-card {
+    min-width: 440px;
+    max-width: 530px;
+  }
+}
+@media (min-width: 600px) {
+  .feed-card {
+    min-width: 500px;
+    max-width: 600px;
+  }
+}
+
+
+/* Responsive main column for feed content */
+.feed-main-col {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 a {
@@ -21,10 +159,102 @@ a {
   text-decoration: none;
 }
 
+/* Responsive images and avatars for PostCard */
+.feed-post-img, .profile-avatar, .comment-avatar {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 13px;
+  object-fit: cover;
+}
+.feed-post-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #bbe2e2;
+  border: 2px solid #bfc8e6;
+}
+
+/* Clamp post card min/max width for all screens */
+@media (min-width: 320px) {
+  .feed-card {
+    min-width: 95vw;
+    max-width: 99vw;
+  }
+}
+@media (min-width: 500px) {
+  .feed-card {
+    min-width: 440px;
+    max-width: 530px;
+  }
+}
+@media (min-width: 600px) {
+  .feed-card {
+    min-width: 500px;
+    max-width: 600px;
+  }
+}
+
+
+/* Responsive main column for feed content */
+.feed-main-col {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* Soft pastel background fallback for all pages */
 body {
   background-color: #e8eaf6;
   color: #222;
+}
+
+/* Responsive images and avatars for PostCard */
+.feed-post-img, .profile-avatar, .comment-avatar {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 13px;
+  object-fit: cover;
+}
+.feed-post-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #bbe2e2;
+  border: 2px solid #bfc8e6;
+}
+
+/* Clamp post card min/max width for all screens */
+@media (min-width: 320px) {
+  .feed-card {
+    min-width: 95vw;
+    max-width: 99vw;
+  }
+}
+@media (min-width: 500px) {
+  .feed-card {
+    min-width: 440px;
+    max-width: 530px;
+  }
+}
+@media (min-width: 600px) {
+  .feed-card {
+    min-width: 500px;
+    max-width: 600px;
+  }
+}
+
+
+/* Responsive main column for feed content */
+.feed-main-col {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h1, h2, h3, h4, h5 {
@@ -34,10 +264,102 @@ h1, h2, h3, h4, h5 {
   letter-spacing: 0.05em;
 }
 
+/* Responsive images and avatars for PostCard */
+.feed-post-img, .profile-avatar, .comment-avatar {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 13px;
+  object-fit: cover;
+}
+.feed-post-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #bbe2e2;
+  border: 2px solid #bfc8e6;
+}
+
+/* Clamp post card min/max width for all screens */
+@media (min-width: 320px) {
+  .feed-card {
+    min-width: 95vw;
+    max-width: 99vw;
+  }
+}
+@media (min-width: 500px) {
+  .feed-card {
+    min-width: 440px;
+    max-width: 530px;
+  }
+}
+@media (min-width: 600px) {
+  .feed-card {
+    min-width: 500px;
+    max-width: 600px;
+  }
+}
+
+
+/* Responsive main column for feed content */
+.feed-main-col {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 button {
   font-family: inherit;
   outline: none;
   border: none;
+}
+
+/* Responsive images and avatars for PostCard */
+.feed-post-img, .profile-avatar, .comment-avatar {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 13px;
+  object-fit: cover;
+}
+.feed-post-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #bbe2e2;
+  border: 2px solid #bfc8e6;
+}
+
+/* Clamp post card min/max width for all screens */
+@media (min-width: 320px) {
+  .feed-card {
+    min-width: 95vw;
+    max-width: 99vw;
+  }
+}
+@media (min-width: 500px) {
+  .feed-card {
+    min-width: 440px;
+    max-width: 530px;
+  }
+}
+@media (min-width: 600px) {
+  .feed-card {
+    min-width: 500px;
+    max-width: 600px;
+  }
+}
+
+
+/* Responsive main column for feed content */
+.feed-main-col {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Enhance selection */
@@ -45,13 +367,197 @@ button {
   background: #bbe2e220;
 }
 
+/* Responsive images and avatars for PostCard */
+.feed-post-img, .profile-avatar, .comment-avatar {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 13px;
+  object-fit: cover;
+}
+.feed-post-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #bbe2e2;
+  border: 2px solid #bfc8e6;
+}
+
+/* Clamp post card min/max width for all screens */
+@media (min-width: 320px) {
+  .feed-card {
+    min-width: 95vw;
+    max-width: 99vw;
+  }
+}
+@media (min-width: 500px) {
+  .feed-card {
+    min-width: 440px;
+    max-width: 530px;
+  }
+}
+@media (min-width: 600px) {
+  .feed-card {
+    min-width: 500px;
+    max-width: 600px;
+  }
+}
+
+
+/* Responsive main column for feed content */
+.feed-main-col {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
+}
+
+/* Responsive images and avatars for PostCard */
+.feed-post-img, .profile-avatar, .comment-avatar {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 13px;
+  object-fit: cover;
+}
+.feed-post-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #bbe2e2;
+  border: 2px solid #bfc8e6;
+}
+
+/* Clamp post card min/max width for all screens */
+@media (min-width: 320px) {
+  .feed-card {
+    min-width: 95vw;
+    max-width: 99vw;
+  }
+}
+@media (min-width: 500px) {
+  .feed-card {
+    min-width: 440px;
+    max-width: 530px;
+  }
+}
+@media (min-width: 600px) {
+  .feed-card {
+    min-width: 500px;
+    max-width: 600px;
+  }
+}
+
+
+/* Responsive main column for feed content */
+.feed-main-col {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 ::-webkit-scrollbar-thumb {
   background: #bbe2e2;
   border-radius: 8px;
 }
+
+/* Responsive images and avatars for PostCard */
+.feed-post-img, .profile-avatar, .comment-avatar {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 13px;
+  object-fit: cover;
+}
+.feed-post-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #bbe2e2;
+  border: 2px solid #bfc8e6;
+}
+
+/* Clamp post card min/max width for all screens */
+@media (min-width: 320px) {
+  .feed-card {
+    min-width: 95vw;
+    max-width: 99vw;
+  }
+}
+@media (min-width: 500px) {
+  .feed-card {
+    min-width: 440px;
+    max-width: 530px;
+  }
+}
+@media (min-width: 600px) {
+  .feed-card {
+    min-width: 500px;
+    max-width: 600px;
+  }
+}
+
+
+/* Responsive main column for feed content */
+.feed-main-col {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 ::-webkit-scrollbar-track {
   background: #e8eaf6;
+}
+
+/* Responsive images and avatars for PostCard */
+.feed-post-img, .profile-avatar, .comment-avatar {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 13px;
+  object-fit: cover;
+}
+.feed-post-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #bbe2e2;
+  border: 2px solid #bfc8e6;
+}
+
+/* Clamp post card min/max width for all screens */
+@media (min-width: 320px) {
+  .feed-card {
+    min-width: 95vw;
+    max-width: 99vw;
+  }
+}
+@media (min-width: 500px) {
+  .feed-card {
+    min-width: 440px;
+    max-width: 530px;
+  }
+}
+@media (min-width: 600px) {
+  .feed-card {
+    min-width: 500px;
+    max-width: 600px;
+  }
+}
+
+
+/* Responsive main column for feed content */
+.feed-main-col {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
