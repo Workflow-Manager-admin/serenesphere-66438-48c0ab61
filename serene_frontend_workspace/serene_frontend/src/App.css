@@ -79,6 +79,63 @@ body {
   letter-spacing: 0.05em;
 }
 
+/* Landing page centering and maximal scale for visual dominance */
+.landing-center {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-title-dramatic {
+  font-family: 'Playfair Display', 'Dancing Script', serif;
+  font-size: 6rem;
+  font-weight: 900;
+  color: #b09fb6;
+  text-shadow: 0 3px 32px #e8eaf650, 0 1.5px 0 #ebeaf7, 0 3px 22px #bfc8e633;
+  letter-spacing: 0.09em;
+  line-height: 1.05;
+}
+
+@media (max-width: 600px) {
+  .landing-title-dramatic {
+    font-size: 3.1rem;
+  }
+
+  .serene-intro {
+    font-size: 1.23rem !important;
+  }
+}
+
+.serene-intro {
+  font-family: 'EB Garamond', 'Dancing Script', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 2.18rem;
+  color: #97a3b9;
+  line-height: 1.18;
+  text-shadow: 0 1px 15px #bfc8e652;
+}
+
+.landing-footer-copyright {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.09rem;
+  color: #b2b7c6;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  background: transparent;
+  width: 100vw;
+  padding-bottom: 10px;
+  padding-top: 16px;
+  text-align: center;
+  user-select: none;
+  z-index: 99;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
 /* Custom spinner for Feed Page infinite scroll */
 @keyframes feedspin {
   0% { transform: rotate(0deg);}
